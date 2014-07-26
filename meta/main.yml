@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: Gerardo Cepeda Poras
+  description: 
+  company:
+  license: license MIT
+  min_ansible_version: 1.5
+  platforms:
+  - name: Ubuntu
+    versions:
+    - precise
+    - quantal
+    - raring
+    - saucy
+    - trusty
+  - name: OSX
+    versions:
+    - all
+  categories:
+  - development
+  - packaging
+  - web
+dependencies: []
+
+  

@@ -1,0 +1,32 @@
+---
+# tasks file for virtualenvwrapper
+- name: install virtualenvwrapper
+  pip: >
+    name=virtualenvwrapper
+    version={{ virtualenvwrapper_version }}
+    state=present
+  tags:
+    - virtualenvwrapper
+    - virtualenvwrapper_installation
+
+- name: set workon home (home for virtuaenvs)
+  lineinfile: >
+    dest=.{{ ansible_env['SHELL'] | replace("/bin/","") }}rc
+    regexp='export WORKON_HOME'
+    line='export WORKON_HOME=~/.virtualenvs'
+    state=present
+    backup=yes
+  tags:
+    - virtualenvwrapper
+    - virtualenvwrapper_configuration
+
+- name: load virtualenvwrapper script
+  lineinfile: >
+    dest=.{{ ansible_env['SHELL'] | replace("/bin/","") }}rc
+    regexp='source /usr/local/bin/virtualenvwrapper.sh'
+    line='source /usr/local/bin/virtualenvwrapper.sh'
+    state=present
+    backup=yes
+  tags:
+    - virtualenvwrapper
+    - virtualenvwrapper_configuration
