@@ -4,6 +4,8 @@ ansible-role-virtualenvwrapper
 An [Ansible](http://www.ansible.com/home) Role that installs and configures
 [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org).
 
+[![Build Status](https://travis-ci.org/gcporras/ansible-role-virtualenvwrapper.png?branch=master)](https://travis-ci.org/gcporras/ansible-role-virtualenvwrapper)
+
 Requirements
 ------------
 
