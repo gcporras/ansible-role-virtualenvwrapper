@@ -1,8 +1,8 @@
 ---
 galaxy_info:
   author: Gerardo Cepeda Poras
-  description: 
-  company:
+  description: Install and configures virtualenvwrapper
+  company: "National Film Board of Canada"
   license: license MIT
   min_ansible_version: 1.5
   platforms:
