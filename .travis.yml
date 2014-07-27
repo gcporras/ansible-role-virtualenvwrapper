@@ -7,6 +7,8 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - export VIRTUALENVWRAPPER_PYTHON=`which python`
+  - export VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
 
 install:
   # Install Ansible.
@@ -20,7 +22,7 @@ script:
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
+  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo -vvvv"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
@@ -29,12 +31,14 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # Make sure virtualenvwrapper is installed.
-  - [ -f /usr/local/bin/virtualenvwrapper.sh ]
+  # show variables
+  - which python
+
+  - which virtualenv
+
 
   # Make sure virtualenvwrapper script is loaded
   - >
-    source /root/.bashrc
-    virtualenvwrapper
+    . /usr/local/bin/virtualenvwrapper.sh
     && (echo 'virtualenvwrapper is installed' && exit 0)
     || (echo 'virtualenvwrapper is not installed' && exit 1)
