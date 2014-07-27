@@ -11,7 +11,7 @@
 
 - name: set workon home (home for virtuaenvs)
   lineinfile: >
-    dest=.{{ ansible_env['SHELL'] | replace("/bin/","") }}rc
+    dest={{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc
     regexp='export WORKON_HOME'
     line='export WORKON_HOME=~/.virtualenvs'
     state=present
@@ -23,7 +23,7 @@
 
 - name: load virtualenvwrapper script
   lineinfile: >
-    dest=.{{ ansible_env['SHELL'] | replace("/bin/","") }}rc
+    dest={{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc
     regexp='source /usr/local/bin/virtualenvwrapper.sh'
     line='source /usr/local/bin/virtualenvwrapper.sh'
     state=present
