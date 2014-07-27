@@ -29,9 +29,11 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
+  # debugging travis
+  - cat ~/.bashrc
+
   # Make sure virtualenvwrapper is installed.
   - >
-    source ~/.bashrc
-    && virtualenvwrapper
+    virtualenvwrapper
     && (echo 'virtualenvwrapper is installed' && exit 0)
     || (echo 'virtualenvwrapper is not installed' && exit 1)
