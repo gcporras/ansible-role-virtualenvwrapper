@@ -20,7 +20,7 @@ script:
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo -vvvv"
+  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
@@ -29,11 +29,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # debugging travis
-  - cat ~/.bashrc
-
   # Make sure virtualenvwrapper is installed.
+  - [ -f /usr/local/bin/virtualenvwrapper.sh ]
+
+  # Make sure virtualenvwrapper script is loaded
   - >
+    source /root/.bashrc
     virtualenvwrapper
     && (echo 'virtualenvwrapper is installed' && exit 0)
     || (echo 'virtualenvwrapper is not installed' && exit 1)
