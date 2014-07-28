@@ -24,8 +24,8 @@
 - name: load virtualenvwrapper script
   lineinfile: >
     dest={{ virtualenvwrapper_shell_rc_file }}
-    regexp='source /usr/local/bin/virtualenvwrapper.sh'
-    line='source /usr/local/bin/virtualenvwrapper.sh'
+    regexp='source `which virtualenvwrapper.sh`'
+    line='source `which virtualenvwrapper.sh`'
     state=present
     backup=yes
     create=yes
