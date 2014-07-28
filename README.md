@@ -36,7 +36,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - role: "nfb-galaxy.virtualenvwrapper"
+         - role: "gcporras.virtualenvwrapper"
            sudo: yes
            tags:
             - virtualenvwrapper
