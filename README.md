@@ -21,6 +21,11 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The version of virtualenvwrapper that will be installed.
 
+    `virtualenvwrapper_shell_rc_file` per default set to
+    `{{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc`
+
+The shell's configuration file for which virtualenvwrapper variables will be set.
+
 Dependencies
 ------------
 

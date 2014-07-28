@@ -2,4 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-virtualenvwrapper
+    - role: ansible-role-virtualenvwrapper
+      virtualenvwrapper_shell_rc_file: /home/travis/.bashrc
