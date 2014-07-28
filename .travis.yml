@@ -36,9 +36,12 @@ script:
 
   - which virtualenv
 
+  # show bashrc
+  - cat ~/.bashrc
+
 
   # Make sure virtualenvwrapper script is loaded
   - >
-    . /usr/local/bin/virtualenvwrapper.sh
+    virtualenvwrapper
     && (echo 'virtualenvwrapper is installed' && exit 0)
     || (echo 'virtualenvwrapper is not installed' && exit 1)
