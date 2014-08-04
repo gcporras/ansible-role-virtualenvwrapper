@@ -2,3 +2,4 @@
 # defaults file for virtualenvwrapper
 virtualenvwrapper_version: 4.3.1
 virtualenvwrapper_shell_rc_file: "{{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc"
+virtualenvwrapper_venvs_home: "{{ ansible_env['HOME'] }}/.virtualenvs"

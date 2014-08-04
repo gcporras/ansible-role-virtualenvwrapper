@@ -13,7 +13,7 @@
   lineinfile: >
     dest={{ virtualenvwrapper_shell_rc_file }}
     regexp='export WORKON_HOME'
-    line='export WORKON_HOME=~/.virtualenvs'
+    line='export WORKON_HOME={{ virtualenvwrapper_venvs_home }}'
     state=present
     backup=yes
     create=yes
@@ -32,3 +32,4 @@
   tags:
     - virtualenvwrapper
     - virtualenvwrapper_configuration
+

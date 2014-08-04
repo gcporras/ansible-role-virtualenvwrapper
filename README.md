@@ -26,6 +26,10 @@ The version of virtualenvwrapper that will be installed.
 
 The shell's configuration file for which virtualenvwrapper variables will be set.
 
+`virtualenvwrapper_venvs_home` per default set to `{{ ansible_env['HOME'] }}/.virtualenvs`
+
+The path to place your virtual environements (sets WORKON_HOME env variable).
+
 Dependencies
 ------------
 
