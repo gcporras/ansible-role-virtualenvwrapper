@@ -17,18 +17,15 @@ Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-`virtualenvwrapper_version` per default set to `4.3.1`
+* `virtualenvwrapper_version = 4.3.1` - The version of virtualenvwrapper that will be installed.
 
-The version of virtualenvwrapper that will be installed.
+* `virtualenvwrapper_shell_rc_file = {{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc` - The shell's configuration file for which virtualenvwrapper variables will be set.
 
-`virtualenvwrapper_shell_rc_file` per default set to
-`{{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc`
+* `virtualenvwrapper_venvs_home = {{ ansible_env['HOME'] }}/.virtualenvs` - The path to place your virtual environements (sets WORKON_HOME env variable).
 
-The shell's configuration file for which virtualenvwrapper variables will be set.
+* `virtualenvwrapper_venvs_python` (No default) - Sets VIRTUALENVWRAPPER_PYTHON with a path of your choice
 
-`virtualenvwrapper_venvs_home` per default set to `{{ ansible_env['HOME'] }}/.virtualenvs`
-
-The path to place your virtual environements (sets WORKON_HOME env variable).
+* `virtualenvwrapper_venvs_project` (No default) - Sets PROJECT_HOME with a path of your choice
 
 Dependencies
 ------------
