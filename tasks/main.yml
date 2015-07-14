@@ -21,7 +21,7 @@
     - virtualenvwrapper
     - virtualenvwrapper_configuration
 
-- name: set project home (if variable is set)
+- name: set project home
   lineinfile: >
     dest={{ virtualenvwrapper_shell_rc_file }}
     regexp='export PROJECT_HOME'
@@ -29,7 +29,6 @@
     state=present
     backup=yes
     create=yes
-  when: virtualenvwrapper_venvs_project is defined
   tags:
     - virtualenvwrapper
     - virtualenvwrapper_configuration
@@ -42,7 +41,7 @@
     state=present
     backup=yes
     create=yes
-  when: virtualenvwrapper_venvs_python is defined
+  when: virtualenvwrapper_override_python
   tags:
     - virtualenvwrapper
     - virtualenvwrapper_configuration
