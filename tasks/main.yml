@@ -21,6 +21,31 @@
     - virtualenvwrapper
     - virtualenvwrapper_configuration
 
+- name: set project home
+  lineinfile: >
+    dest={{ virtualenvwrapper_shell_rc_file }}
+    regexp='export PROJECT_HOME'
+    line='export PROJECT_HOME={{ virtualenvwrapper_venvs_project }}'
+    state=present
+    backup=yes
+    create=yes
+  tags:
+    - virtualenvwrapper
+    - virtualenvwrapper_configuration
+
+- name: set virtualenvwrapper python path (if variable is set)
+  lineinfile: >
+    dest={{ virtualenvwrapper_shell_rc_file }}
+    regexp='export VIRTUALENVWRAPPER_PYTHON'
+    line='export VIRTUALENVWRAPPER_PYTHON={{ virtualenvwrapper_venvs_python }}'
+    state=present
+    backup=yes
+    create=yes
+  when: virtualenvwrapper_override_python
+  tags:
+    - virtualenvwrapper
+    - virtualenvwrapper_configuration
+
 - name: load virtualenvwrapper script
   lineinfile: >
     dest={{ virtualenvwrapper_shell_rc_file }}

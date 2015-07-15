@@ -17,18 +17,17 @@ Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-`virtualenvwrapper_version` per default set to `4.3.1`
+* `virtualenvwrapper_version = 4.3.1` - The version of virtualenvwrapper that will be installed.
 
-The version of virtualenvwrapper that will be installed.
+* `virtualenvwrapper_shell_rc_file = "{{ lookup('env', 'HOME') }}/.{{ lookup('env', 'SHELL') | replace('/bin/','') }}rc"` - The shell's configuration file for which virtualenvwrapper variables will be set.
 
-`virtualenvwrapper_shell_rc_file` per default set to
-`{{ ansible_env['HOME'] }}/.{{ ansible_env['SHELL'] | replace('/bin/','') }}rc`
+* `virtualenvwrapper_venvs_home = "{{ lookup('env', 'HOME') }}/.virtualenvs"` - The path to place your virtual environements (sets WORKON_HOME env variable).
 
-The shell's configuration file for which virtualenvwrapper variables will be set.
+* `virtualenvwrapper_override_python = no` - Tells virtualenv not to look for python executable in $PATH, but set VIRTUALENVWRAPPER_PYTHON instead
 
-`virtualenvwrapper_venvs_home` per default set to `{{ ansible_env['HOME'] }}/.virtualenvs`
+* `virtualenvwrapper_venvs_python = /usr/lib.python` - What to set VIRTUALENVWRAPPER_PYTHON to override_python is true
 
-The path to place your virtual environements (sets WORKON_HOME env variable).
+* `virtualenvwrapper_venvs_project = "{{ lookup('env', 'HOME') }}/Devel"` - Sets PROJECT_HOME to a path of your choice
 
 Dependencies
 ------------

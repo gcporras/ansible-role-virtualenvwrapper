@@ -2,5 +2,8 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - role: ansible-role-virtualenvwrapper
+    # Current parameterized role, look at '../defaults/main.yml' to see all variables
+    - role: ../..
       virtualenvwrapper_shell_rc_file: /home/travis/.bashrc
+      virtualenvwrapper_override_python: yes
+
